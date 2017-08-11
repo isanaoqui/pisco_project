@@ -1,4 +1,5 @@
 import twitter from 'twitter'
+import s from 'socket.io'
 
 var client = new twitter({
   consumer_key: 'joNEHfMcreL7v10Z5zTWmjA36',
@@ -15,3 +16,23 @@ function getDate() {
 
 searchPeru = 'pisco (peru OR peruano) -chile -chileno since:' + getDate()
 searchChile = 'pisco (chile OR chileno) -peru -peruano since:' + getDate()
+// 
+// client.stream('statuses/filter', {track: searchPeru}, function(stream) {
+//   stream.on('data', function(event) {
+//
+//   })
+//
+//   stream.on('error', function(error) {
+//     throw error
+//   })
+// })
+//
+// var io = s.listen(80)
+// var stream = client.stream('statuses/filter', {track: searchPeru})
+//
+// io.sockets.on('connection', function (socket) {
+//   stream.on('data', function(tweet) {
+//     console.log(tweet)
+//     socket.emit('info', { tweet: tweet});
+//   });
+// });

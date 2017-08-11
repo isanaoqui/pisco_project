@@ -15,6 +15,7 @@
     "babel-preset-react": "^6.24.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "socket.io-stream": "^0.9.1",
     "twitter": "^1.7.1"
   },
   "devDependencies": {

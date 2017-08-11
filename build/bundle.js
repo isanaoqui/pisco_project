@@ -9740,6 +9740,8 @@ module.exports = getHostComponentFromComposite;
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(82);
 
 var _react2 = _interopRequireDefault(_react);
@@ -9750,11 +9752,101 @@ var _reactDom2 = _interopRequireDefault(_reactDom);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(
-  'h1',
-  null,
-  'Hello, world!'
-), document.getElementById('root'));
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+function Tweet(props) {
+  return _react2.default.createElement(
+    'div',
+    { className: 'Tweet' },
+    _react2.default.createElement(
+      'div',
+      { className: 'Author' },
+      props.tweet.author
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'Text' },
+      props.tweet.text
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'Date' },
+      'new Date()'
+    )
+  );
+}
+
+var PiscoTweets = function (_React$Component) {
+  _inherits(PiscoTweets, _React$Component);
+
+  function PiscoTweets(props) {
+    _classCallCheck(this, PiscoTweets);
+
+    var _this = _possibleConstructorReturn(this, (PiscoTweets.__proto__ || Object.getPrototypeOf(PiscoTweets)).call(this, props));
+
+    _this.state = {
+      numTweets: 0,
+      latestTweet: {
+        author: '',
+        text: ''
+      },
+      country: props.country
+    };
+    return _this;
+  }
+
+  _createClass(PiscoTweets, [{
+    key: 'increaseTweets',
+    value: function increaseTweets() {
+      this.numTweets += 1;
+    }
+  }, {
+    key: 'addLatestTweet',
+    value: function addLatestTweet(tweet) {
+      this.state.latestTweet[author] = tweet.author;
+      this.state.latestTweet[text] = tweet.text;
+      increaseTweets();
+    }
+  }, {
+    key: 'totalTweets',
+    value: function totalTweets() {
+      return this.state.numTweets;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'Pisco' },
+        _react2.default.createElement(Tweet, { tweet: this.state.latestTweet }),
+        _react2.default.createElement(
+          'div',
+          { className: 'Title' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Latest Pisco ',
+            this.state.country,
+            ' Tweet'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'TotalTweets' },
+          this.state.numTweets
+        )
+      );
+    }
+  }]);
+
+  return PiscoTweets;
+}(_react2.default.Component);
+
+_reactDom2.default.render(_react2.default.createElement(PiscoTweets, { country: 'Peru' }), document.getElementById('tweets'));
 
 /***/ }),
 /* 82 */
