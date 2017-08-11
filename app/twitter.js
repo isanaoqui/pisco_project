@@ -16,7 +16,7 @@ function getDate() {
 
 searchPeru = 'pisco (peru OR peruano) -chile -chileno since:' + getDate()
 searchChile = 'pisco (chile OR chileno) -peru -peruano since:' + getDate()
-// 
+
 // client.stream('statuses/filter', {track: searchPeru}, function(stream) {
 //   stream.on('data', function(event) {
 //
